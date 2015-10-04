@@ -78,14 +78,7 @@ TypeScript.prototype.cacheKeyProcessString = function(string, relativePath) {
 };
 
 TypeScript.prototype.processString = function (string, relativePath) {
-  try{
-    return ts.transpileModule(string, {compilerOptions: this.options, fileName: relativePath}).outputText;
-  }catch(e){
-    console.log("TYPESCRIPT ERROR: " + e.message)
-    console.log(e.stack + "\n");
-
-    return "";
-  }
+  return ts.transpileModule(string, {compilerOptions: this.options, fileName: relativePath}).outputText;
 };
 
 module.exports = TypeScript;
